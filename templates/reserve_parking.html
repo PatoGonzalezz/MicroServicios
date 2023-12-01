@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservar Estacionamiento</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        /* Estilos del mapa */
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Aquí va el mapa -->
+        <div id='map'></div>
+    </div>
+
+    <script>
+        // Token de acceso a Mapbox
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGF0MWhubyIsImEiOiJjbG5naWgyOXIwYnF2Mm1vOXhueWFtbXM4In0.zfLtRF__vmCcRycCOuJbPw';
+
+        // Crear mapa
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-74.5, 40], // Coordenadas iniciales
+            zoom: 9 // Nivel de zoom
+        });
+
+        // Añadir marcadores con popups
+        var marker1 = new mapboxgl.Marker()
+            .setLngLat([-74.5, 40])
+            .setPopup(new mapboxgl.Popup().setHTML("<h3>Marcador 1</h3><p>Información adicional sobre este marcador.</p>"))
+            .addTo(map); // Coordenadas del marcador 1 con popup
+
+        var marker2 = new mapboxgl.Marker()
+            .setLngLat([-74.55, 39.9])
+            .setPopup(new mapboxgl.Popup().setHTML("<h3>Marcador 2</h3><p>Otra información aquí.</p>"))
+            .addTo(map); // Coordenadas del marcador 2 con popup
+    </script>
+</body>
+</html>
